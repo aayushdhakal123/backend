@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo App</title>
+</head>
+<body>
+  <h1>Todo App</h1>
+  
+  <form action="/" method="POST">
+    <input type="text" name="task" placeholder="Enter task">
+    <button type="submit">Add Task</button>
+  </form>
+  
+  <ul>
+    <% tasks.forEach(function(task, index) { %>
+      <li>
+        <%= task %>
+        <form action="/delete" method="POST" style="display: inline;">
+          <input type="hidden" name="taskId" value="<%= index %>">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
